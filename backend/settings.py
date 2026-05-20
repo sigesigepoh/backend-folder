@@ -128,8 +128,9 @@ CORS_ALLOW_ALL_ORIGINS = True
 ALLOWED_HOSTS = ['*']
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # Explicitly leave out SessionAuthentication for mobile clients
+        'rest_framework.authentication.TokenAuthentication', 
     ],
 }
 
