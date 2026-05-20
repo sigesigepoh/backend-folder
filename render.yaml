@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: lost-found-backend
+    env: python
+    region: oregon
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend.wsgi --log-file -
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings
